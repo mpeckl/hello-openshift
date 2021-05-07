@@ -15,6 +15,9 @@ spec:
       containers:
       - name: hello-openshift
         image: docker-registry.default.svc:5000/training12/hello-openshift:build-1
+        volumeMounts:
+        - name: config-volume
+          mountPath: /tmp/config-data
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
@@ -28,5 +31,9 @@ spec:
             port: 9080
             scheme: HTTP
           initialDelaySeconds: 50
+      volumes:
+      - name: config-volume
+        configMap:
+          name: hello-openshift-config
       restartPolicy: Always
 ---

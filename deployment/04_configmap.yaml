@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-openshift-config
+data:
+  application.properties: |
+    hello=OpenShift
+    key=value
+    noch=ein
+    weiterer=key
+---
