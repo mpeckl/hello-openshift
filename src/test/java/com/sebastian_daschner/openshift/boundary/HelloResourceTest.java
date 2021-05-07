@@ -19,4 +19,13 @@ public class HelloResourceTest {
         Stream.of(first, second, third).forEach(s -> assertThat(s).startsWith("Hello OpenShift"));
     }
 
+    @Test
+    public void testHelloFrom() {
+        String first = helloResource.helloFrom("OpenShift");
+        String second = helloResource.helloFrom("Jenkins");
+        String third = helloResource.helloFrom("Course");
+
+        Stream.of(first, second, third).forEach(s -> assertThat(s).startsWith("Hello from"));
+    }    
+
 }
